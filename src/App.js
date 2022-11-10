@@ -3,12 +3,22 @@ import { useState } from 'react';
 
 const HeaderText = (props) => {
   return (
-    <div>
-      <p className='header-name'>{props.name}</p>
-      <p className='header-text'>{props.text}</p>
+    <div className='header'>
+      <h1>{props.name}</h1>
+      <p>{props.text}</p>
     </div>
   )
 }
+
+const WorkList = (jobs) => {
+  return  <div className="workList">
+        <h1>{jobs.title}</h1>
+        <h2>{jobs.date}</h2>
+        <p>{jobs.description}</p>
+    </div>
+}
+
+
 
 
 
@@ -35,16 +45,6 @@ const myObject = {
 }
 
 
-const jobList = (jobs) => {
-  return (
-    <div className='jobList'>
-      <h1>{jobs.title}</h1>
-      <h2>{jobs.date}</h2>
-      <p>{jobs.description}</p>
-    </div>
-  )
-}
-
 const App = () => {
   return (
     <div className="App">
@@ -56,9 +56,10 @@ const App = () => {
         </div>
         <hr></hr>
         <div>
-        <h1>{myObject.jobs[0].title}</h1>
-        <h2>{}</h2>
-        <p>{}</p>
+        <WorkList title={myObject.jobs[0].title} date={myObject.jobs[0].date} description={myObject.jobs[0].description}/>
+        <WorkList title={myObject.jobs[1].title} date={myObject.jobs[1].date} description={myObject.jobs[1].description}/>
+        <WorkList title={myObject.jobs[2].title} date={myObject.jobs[2].date} description={myObject.jobs[2].description}/>
+
         </div>
       </header>
     </div>
